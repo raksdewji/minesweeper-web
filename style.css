@@ -1,0 +1,296 @@
+* {
+  font-family: Libre Franklin, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.message {
+  position: relative;
+  top: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+header {
+  display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.difficulty {
+  font-size: 1.5em;
+  margin: 5px;
+  color: black;
+}
+
+.time {
+  padding: 1px 0.5em;
+  font-size: 1.5em;
+  color: black;
+}
+
+.flag-count {
+  display: flex;
+  padding: 5px;
+  font-size: 1em;
+  margin: 5px;
+  color: black;
+}
+
+.flag-count > h1 {
+  font-size: 1.5em;
+}
+.game-board {
+  position: absolute;
+  border: 1px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+
+.row-easy {
+  display: flex;
+  height: 3rem;
+}
+.row-med {
+  display: flex;
+  height: 2.5rem;
+}
+
+.col-easy {
+  display: flex;
+  border: 2px solid black;
+  width: 3rem;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.3rem;
+  background-color: #64a832;
+}
+
+.col-med {
+  display: flex;
+  border: 2px solid black;
+  width: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.3rem;
+  background-color: #64a832;
+}
+
+.flagged {
+  pointer-events: none;
+  color: red;
+}
+
+.col-easy:hover,
+.col-med:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: #4b8025;
+}
+
+.seen {
+  background-color: #baa261;
+  color: blue;
+}
+
+.bomb {
+  background-color: red;
+  color: black;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+@media only screen and (max-width: 812px) and (orientation: portrait) {
+  .header {
+    display: flex;
+    width: 100vw;
+    height: 4rem;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  form {
+    width: 35%;
+    font-size: 1rem;
+  }
+
+  .flag-count > h1 {
+    font-size: 1rem;
+  }
+
+  .flag-count {
+    display: flex;
+    padding: 5px;
+    font-size: 1rem;
+    margin: 5px;
+    color: black;
+  }
+  .row-easy {
+    display: flex;
+    height: 2.5em;
+  }
+  .row-med {
+    display: flex;
+    height: 1.5rem;
+  }
+
+  .col-easy {
+    display: flex;
+    background-color: #64a832;
+    border: 2px solid black;
+    width: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 1rem;
+  }
+
+  .col-med {
+    display: flex;
+    background-color: #64a832;
+    border: 2px solid black;
+    width: 1rem;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 0.7rem;
+  }
+
+  .time {
+    font-size: 1rem;
+    padding-right: 5px;
+  }
+  .seen {
+    background-color: #baa261;
+    color: blue;
+  }
+
+  .bomb {
+    background-color: red;
+    color: black;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .flagged {
+    pointer-events: none;
+    color: red;
+    font-size: 0.7rem;
+  }
+
+  .success {
+    color: green;
+  }
+}
+
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+  .header {
+    display: flex;
+    width: 100vw;
+    height: 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 15px;
+  }
+  .game-board {
+    display: flex;
+    border: 1px solid black;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    max-width: 800px;
+    justify-content: center;
+    margin-top: 7%;
+  }
+
+  .message {
+    position: relative;
+    top: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 30px;
+  }
+
+  .flag-count > h1 {
+    font-size: 0.8rem;
+  }
+  .row-easy {
+    display: flex;
+    height: 1.8em;
+  }
+  .row-med {
+    display: flex;
+    height: 1.1rem;
+  }
+
+  .col-easy {
+    display: flex;
+    background-color: #64a832;
+    border: 2px solid black;
+    width: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 0.9rem;
+  }
+
+  .col-med {
+    display: flex;
+    background-color: #64a832;
+    border: 0.5px solid black;
+    width: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 0.8rem;
+  }
+
+  .time {
+    font-size: 0.8rem;
+    padding-right: 5px;
+  }
+  .seen {
+    background-color: #baa261;
+    color: blue;
+  }
+
+  .flagged {
+    pointer-events: none;
+    color: red;
+    font-size: 0.8rem;
+  }
+
+  .bomb {
+    background-color: red;
+    color: black;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .success {
+    color: green;
+  }
+}
