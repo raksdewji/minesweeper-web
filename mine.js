@@ -36,7 +36,7 @@ let MSGame = (function () {
           piece.classList.add("col-med")
         }
 
-        $(piece).on("taphold", tapHander).on("click", clickHandler);
+        $(piece).on("taphold", tapHander).on("click", clickHandler).on("contextmenu", rightClick);
 
         gridRow.appendChild(piece);
       }
@@ -52,6 +52,17 @@ let MSGame = (function () {
   }
 
   function tapHander(input) {
+    const arr = input.target.id.split(" ");
+    console.log(arr);
+    let row = parseInt(arr[0]);
+    let col = parseInt(arr[1]);
+    game.mark(row, col);
+    game.drawBoard(game.getRendering());
+    updateGame(game.getStatus());
+  }
+
+  function rightClick(input) {
+    input.preventDefault();
     const arr = input.target.id.split(" ");
     console.log(arr);
     let row = parseInt(arr[0]);
