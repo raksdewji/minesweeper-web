@@ -17,7 +17,7 @@ let MSGame = (function () {
       const gridRow = document.createElement("div");
       gridRow.setAttribute("id", `${row}`);
 
-      if (grid_size === 'easy') {
+      if (gridSize === 'easy') {
         gridRow.classList.add("row-easy");
       } else {
         gridRow.classList.add("row-med")
@@ -30,7 +30,7 @@ let MSGame = (function () {
         const piece = document.createElement("div");
         piece.setAttribute("id", `${row} ${col}`);
 
-        if (grid_size === 'easy') {
+        if (gridSize === 'easy') {
           piece.classList.add("col-easy");
         } else {
           piece.classList.add("col-med")
@@ -276,7 +276,7 @@ let MSGame = (function () {
         const gridRow = document.createElement("div");
         gridRow.setAttribute("id", `${row}`);
         
-        if (grid_size === 'easy') {
+        if (gridSize === 'easy') {
           gridRow.classList.add("row-easy");
         } else {
           gridRow.classList.add("row-med")
@@ -285,7 +285,7 @@ let MSGame = (function () {
           const piece = document.createElement("div");
           piece.setAttribute("id", `${row} ${col}`);
           
-          if (grid_size === 'easy') {
+          if (gridSize === 'easy') {
             piece.classList.add("col-easy");
           } else {
             piece.classList.add("col-med")
@@ -347,16 +347,16 @@ function timer() {
 
 const mines = document.querySelector("#mines");
 const message = document.querySelector(".message");
-const grid_element = document.querySelector(".difficulty");
+const gridElement = document.querySelector(".difficulty");
 
 function resetGrid() {
   game.clear();
   initBoard();
 }
 
-let grid_size = "";
-grid_element.addEventListener("change", (event) => {
-  grid_size = event.target.value;
+let gridSize = "";
+gridElement.addEventListener("change", (event) => {
+  gridSize = event.target.value;
   initBoard();
 });
 
@@ -368,12 +368,12 @@ function initBoard() {
   sec = 0;
   min = 0;
   message.innerText = "";
-  if (grid_size === "easy") {
+  if (gridSize === "easy") {
     console.log(game.getStatus().nmines);
     mines.innerText = 10;
     game.clear();
     game.init(8, 10, 10);
-  } else if (grid_size === "medium") {
+  } else if (gridSize === "medium") {
     mines.innerText = 40;
     game.clear();
     game.init(14, 18, 40);
